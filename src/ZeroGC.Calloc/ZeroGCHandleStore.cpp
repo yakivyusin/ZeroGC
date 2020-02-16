@@ -34,12 +34,3 @@ OBJECTHANDLE ZeroGCHandleStore::CreateDependentHandle(Object * primary, Object *
 	handles[handlesCount] = (OBJECTHANDLE__*)primary;
 	return (OBJECTHANDLE)&handles[handlesCount++];
 }
-
-void ZeroGCHandleStore::RelocateAsyncPinnedHandles(IGCHandleStore* pTarget, void(*clearIfComplete)(Object*), void(*setHandle)(Object*, OBJECTHANDLE))
-{
-}
-
-bool ZeroGCHandleStore::EnumerateAsyncPinnedHandles(async_pin_enum_fn callback, void * context)
-{
-    return false;
-}

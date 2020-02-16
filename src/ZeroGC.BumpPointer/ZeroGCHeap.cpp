@@ -56,11 +56,6 @@ HRESULT ZeroGCHeap::WaitUntilConcurrentGCCompleteAsync(int millisecondsTimeout)
     return E_NOTIMPL;
 }
 
-bool ZeroGCHeap::FinalizeAppDomain(void * pDomain, bool fRunFinalizers)
-{
-    return false;
-}
-
 void ZeroGCHeap::SetFinalizeQueueForShutdown(bool fHasLock)
 {
 }
@@ -386,7 +381,7 @@ void ZeroGCHeap::ControlPrivateEvents(GCEventKeyword keyword, GCEventLevel level
 {
 }
 
-void ZeroGCHeap::GetMemoryInfo(uint32_t * highMemLoadThreshold, uint64_t * totalPhysicalMem, uint32_t * lastRecordedMemLoad, size_t * lastRecordedHeapSize, size_t * lastRecordedFragmentation)
+void ZeroGCHeap::GetMemoryInfo(uint64_t* highMemLoadThreshold, uint64_t* totalPhysicalMem, uint64_t* lastRecordedMemLoad, uint32_t* lastRecordedMemLoadPct, size_t* lastRecordedHeapSize, size_t* lastRecordedFragmentation)
 {
 }
 
@@ -401,4 +396,24 @@ void ZeroGCHeap::SetYieldProcessorScalingFactor(float yieldProcessorScalingFacto
 bool ZeroGCHeap::IsInFrozenSegment(Object* object)
 {
 	return false;
+}
+
+uint64_t ZeroGCHeap::GetTotalAllocatedBytes()
+{
+    return 0;
+}
+
+int ZeroGCHeap::GetLastGCPercentTimeInGC()
+{
+    return 0;
+}
+
+size_t ZeroGCHeap::GetLastGCGenerationSize(int gen)
+{
+    return size_t();
+}
+
+void ZeroGCHeap::DiagWalkObject2(Object* obj, walk_fn2 fn, void* context)
+{
+
 }

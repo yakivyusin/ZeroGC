@@ -8,9 +8,8 @@ class ZeroGCHandleManager : public IGCHandleManager
     // Inherited via IGCHandleManager
     virtual bool Initialize() override;
     virtual void Shutdown() override;
-    virtual void * GetHandleContext(OBJECTHANDLE handle) override;
     virtual IGCHandleStore * GetGlobalHandleStore() override;
-    virtual IGCHandleStore * CreateHandleStore(void * context) override;
+    virtual IGCHandleStore * CreateHandleStore() override;
     virtual void DestroyHandleStore(IGCHandleStore * store) override;
     virtual OBJECTHANDLE CreateGlobalHandleOfType(Object * object, HandleType type) override;
     virtual OBJECTHANDLE CreateDuplicateHandle(OBJECTHANDLE handle) override;

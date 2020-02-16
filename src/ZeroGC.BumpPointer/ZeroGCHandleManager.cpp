@@ -14,17 +14,12 @@ void ZeroGCHandleManager::Shutdown()
 {
 }
 
-void * ZeroGCHandleManager::GetHandleContext(OBJECTHANDLE handle)
-{
-    return (void*)1;
-}
-
 IGCHandleStore * ZeroGCHandleManager::GetGlobalHandleStore()
 {
     return g_gcGlobalHandleStore;
 }
 
-IGCHandleStore * ZeroGCHandleManager::CreateHandleStore(void * context)
+IGCHandleStore * ZeroGCHandleManager::CreateHandleStore()
 {
     return nullptr;
 }

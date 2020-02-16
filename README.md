@@ -1,14 +1,8 @@
-# Custom GCs in .NET
+Fork of [kkokosa/UpsilonGC](https://github.com/kkokosa/UpsilonGC) with updated Zero GCs to launch on .NET Core 3.1.1.
+
+## Custom GCs in .NET
 
 Starting from .NET Core 2.0 coupling between Garbage Collector and the Execution Engine itself have been loosened. Prior to this version, the Garbage Collector code was pretty much tangled with the rest of the CoreCLR code. However, Local GC initiative in version 2.1 is already mature enough to start using it. The purpose of the exercise we are going to do is to prepare Zero Garbage Collector that replaces the default one. And then move to implement something more sophisticated.
-
-So this repository currently contains two so-called Zero GCs and one real-world Upsilon GC:
-
-## Upsilon GC
-
-The very first, real-world custom GC that will actually reclaim memory.
-
-TODO: write initial description
 
 ## Zero Garbage Collector
 
@@ -23,12 +17,6 @@ More motivation you may find in JVM's recently added [Epsilon GC](https://openjd
 ## Samples
 
 It is super important to set the GC to workstation mode, instead of Server mode. As explained in articles below, even in custom GC the difference between Workstation and Server should be irreleveant, this setting influece how runtime handles write barriers. In case of Server GC it will end in StackOverflowException or any other nasty crash.
-
-### WebApi
-
-There is simple WebAPI project doing almost nothing, just to provide you a quick-start scenario. You may wish load test it to see the behaviour of memory with ZeroGC (for example using [SuperBenchmarker](https://github.com/aliostad/SuperBenchmarker)):
-
-sb -u http://localhost:5000/api/values -c 60 -n 40000 -y 10 -W 60
 
 ## Materials
 
